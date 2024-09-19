@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu de orçamentos</title>
+    <style>
+        /* Estilos para o layout */
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: flex-start;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        #formulario {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 20px;
+            width: 300px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        select,
+        input[type="text"] {
+            width: calc(100% - 22px);
+            padding: 8px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            background-color: #4caf50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+
+        <h1>Menu de Orçamentos</h1>
+        <div id="formulario">
+            <form id="orcamentoForm">
+                <label for="cliente">Cliente:</label>
+                <select id="cliente" name="cliente">
+                    <!-- Opções de clientes vão aparecer aqui -->
+                </select>
+                <br>
+                <label for="telefone">telefone </label>
+                <input type="tel" id="telefone" name="telefone">
+                <br>
+                <br>
+                <label for="carro">Carro:</label>
+                <select id="carro" name="carro">
+                    <!-- Opções de carros vão aparecer aqui -->
+                </select>
+                <br>
+                <label for="placa">Placa: </label>
+                <input type="text" id="Placa" name="Placa">
+                <br>
+                <br>
+                <label for="Modelo">Marca: </label>
+                <input type="text" id="Marca" name="Marca">
+                <br>
+                <br>
+                <label for="motor">Motor:</label>
+                <input type="text" id="motor" name="motor">
+                <br>
+                <br>
+                <label for="KM">KM:</label>
+                <input type="text" id="KM" name="KM">
+                <br>
+                <br>
+                <label for="Ano">Ano:</label>
+                <input type="text" id="Ano" name="Ano">
+                <br>
+                <br>
+                <label for="Peça">Nome da peça: </label>
+                <input type="text" id="Peca" name="Peca">
+                <br>
+                <br>
+                <label for="Peca">Referencia da peça</label>
+                <input type="text" id="Referencia" name="Referencia">
+                <br>
+                <br>
+                <label for="Ano">Valor da peca: </label>
+                <input type="text" id="Valor" name="Valor">
+                <br>
+                <br>
+                <button type="button" id="adicionarPeca">Adicionar Peça</button>
+                <div id="pecasContainer">
+                </div>
+                <br>
+                <label for="maoDeObra">Mão de Obra (em reais):</label>
+                <input type="text" id="maoDeObra" name="maoDeObra" onkeyup="formatarMoeda(this)">
+                <br>
+                <label for="valorTotal">Valor Total:</label>
+                <input type="text" id="valorTotal" name="valorTotal" disabled>
+                <button type="button" id="criarOrcamento">Criar Orçamento</button>
+              </form>
+            </div>
+    
+    <script>
+    </script>
+    <script>
+        
+    </script>
+    <script src="/oficina/js/orçamento.js "></script>
+    <script src="/oficina/js/index.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+</body>
+</html>

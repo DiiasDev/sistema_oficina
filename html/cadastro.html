@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="/oficina/css/style.css">
+    <style>
+        /* Corpo da página */
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        .content {
+            overflow-y: auto;
+            height: 100vh;
+            padding: 20px;
+        }
+    </style>
+    <link rel="stylesheet" href="modelStyle.css">
+</head>
+
+<body>
+    <div class="menu">
+        <div>
+            <button id="openModalClientes" class="glow-on-hover">Cadastrar clientes</button>
+            <button id="openModalFornecedor" class="glow-on-hover">Cadastrar Fornecedor</button>
+            <button id="openPopupBtn" class="glow-on-hover">Cadastrar Mecânicos</button>
+            <button id="openModalCarros" class="glow-on-hover">Cadastrar Carros</button>
+            <button id="openModalPeças" class="glow-on-hover">Cadastrar Peças</button>
+            <button id="openModal" class="glow-on-hover">Menu De Orçamentos</button>
+
+        </div>
+    </div>
+
+    
+    <div class="Body">
+        <div class="relogio">
+            <div>
+                <span id="horas">00</span>
+                <span class="tempo">Horas</span>
+            </div>
+            <div>
+                <span id="minutos">00</span>
+                <span class="tempo">Minutos</span>
+            </div>
+            <div>
+                <span id="segundos">00</span>
+                <span class="tempo">Segundos</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal-container" id="modalClientes">
+        <div class="modal">
+          <h2>Cadastro de Cliente</h2>
+          <form id="cadastroClienteForm">
+            <input type="text" id="primeiro_Nome" name="primeiro_Nome" required placeholder="Primeiro Nome">
+            <input type="text" id="segundo_Nome" name="segundo_Nome" required placeholder="Segundo Nome">
+            <input type="text" id="celular" name="celular" required placeholder="Telefone">
+            <input type="email" id="email" name="email" required placeholder="E-mail">
+            <button type="submit" id="cadastrarCliente">Cadastrar</button>
+          </form>
+          <button id="closeModalClientes">Fechar</button>
+        </div>
+      </div>
+
+      <!-- cadastro de fornecedores -->
+      <div class="modal-container" id="modalFornecedor">
+        <div class="modal">
+          <h2>Cadastro de Fornecedor</h2>
+          <form id="cadastroFornecedorForm" method="POST">
+            <input type="text" id="nome_Fornecedor" name="nomeFornecedor" required placeholder="Nome do Fornecedor">
+            <input type="text" id="produto_Fornecido" name="produto" required placeholder="Produto Fornecido">
+            <input type="text" id="telefone_Fornecedor" name="telefoneFornecedor" required placeholder="Telefone do Fornecedor">
+            <input type="text" id="Endereço_Fornecedor" name="Endereço_Fornecedor" required placeholder="Endereço">
+            <button type="submit" id="cadastrarFornecedor">Cadastrar</button>
+        </form>
+        
+          <button id="closeModalFornecedor">Fechar</button>
+        </div>
+      </div>
+
+     
+
+      <div class="modal-container" id="modalContainer">
+        <div class="modal">
+          <span class="close" id="closePopup"></span>
+          <h2>Cadastro de Mecânico</h2>
+          <form id="mechanicForm">
+            <input type="text" id="Nome" name="Nome" required placeholder="Nome">
+            <input type="text" id="Sobrenome" name="Sobrenome" required placeholder="Sobrenome">
+            <input type="text" id="Telefone" name="Telefone" required placeholder="Telefone">
+            <input type="text" id="Email" name="Email" required placeholder="Email">
+            <button type="submit" id="cadastrarFornecedor">Cadastrar</button>
+          </form>
+          <button id="closeModalMecanico">Fechar</button>
+        </div>
+      </div>
+
+      <div class="modal-container" id="modalCarros">
+        <div class="modal">
+          <h2>Cadastro de Carro</h2>
+          <form id="cadastroCarroForm">
+            <input type="text" id="marca" name="marca" required placeholder="Marca do Carro">
+            <input type="text" id="modelo" name="modelo" required placeholder="Modelo do Carro">
+            <input type="text" id="ano" name="ano" required placeholder="Ano do Carro">
+            <input type="text" id="placa" name="placa" required placeholder="Placa do Carro">
+            <input type="text" id="km" name="km" required placeholder="KM">
+            <input type="text" id="motor" name="motor" required placeholder="Motor do carro">
+            <select id="clienteSelecionado" name="clienteSelecionado" >
+              <!-- Options vão ser adicionadas dinamicamente aqui -->
+            </select>
+            <button id="selectClient">Selecionar Cliente</button>
+            <button type="submit" id="cadastrarCarro">Cadastrar</button>
+          </form>
+          <button id="closeModalCarros">Fechar</button>
+        </div>
+      </div>
+
+      <div class="modal-container" id="modalClientes">
+        <div class="modal">
+          <h2>Selecione um Cliente</h2>
+          <!-- Dentro do seu modal de clientes -->
+<select id="clientsList">
+  <!-- Opções de clientes vão aparecer aqui -->
+</select>
+
+          <select id="clientsListModal" name="clientsListModal"></select>
+          <button id="confirmSelectClient">Confirmar</button>
+          <button id="closeModalClientes">Fechar</button>
+        </div>
+      </div>
+      
+      <div class="modal-container" id="modalPeças">
+        <div class="modal">
+          <h2>Cadastro de Peças</h2>
+          <form id="cadastroPeçasForm" method="POST">
+            <input type="text" id="Nome_peça" name="Nome_peça" required placeholder="Nome da peça">
+            <input type="text" id="valor" name="valor" required placeholder="valor da peça">
+            <input type="text" id="Referência" name="Referência" required placeholder="Referência da peça">
+            <button type="submit" id="cadastrarPeça">Cadastrar</button>
+        </form>
+        
+          <button id="closeModalPeças">Fechar</button>
+        </div>
+      </div>
+      
+      <div class="modal-container" id="popupContainer">
+        <div class="modal">
+          <h2>Escolha uma opção:</h2>
+          <button id="montarOrcamentoBtn">Montar Orçamento</button>
+          <button id="consultarOrcamentoBtn">Consultar Orçamento</button>
+          <button id="fecharPopupBtn">Fechar</button>
+        </div>
+      </div>
+
+
+    <script>
+        // Capturando os elementos relevantes
+        const openModalClientesButton = document.getElementById('openModalClientes');
+        const modalClientes = document.getElementById('modalClientes');
+        const closeModalClientesButton = document.getElementById('closeModalClientes');
+        
+        
+
+        // Adicionando evento de clique para abrir o modal
+        openModalClientesButton.addEventListener('click', () => {
+            modalClientes.style.display = 'flex';
+        });
+
+        // Adicionando evento de clique para fechar o modal
+        closeModalClientesButton.addEventListener('click', () => {
+            modalClientes.style.display = 'none';
+        });
+
+        modalClientes.style.display = 'none';
+
+        // popup MECÂNICOS
+
+        const openPopupBtn = document.getElementById('openPopupBtn');
+const closePopupBtn = document.getElementById('closePopup');
+const modalContainer = document.getElementById('modalContainer');
+const mechanicForm = document.getElementById('mechanicForm');
+const closeModalMecanicosButton = document.getElementById('closeModalMecanico');
+
+// Adicionando evento de clique para abrir o popup de cadastro de mecânico
+openPopupBtn.addEventListener('click', () => {
+    modalContainer.style.display = 'flex';
+});
+
+// Adicionando evento de clique para fechar o popup de cadastro de mecânico (usando o botão "Fechar")
+closePopupBtn.addEventListener('click', () => {
+    modalContainer.style.display = 'none';
+});
+
+// Adicionando evento de clique para fechar o popup de cadastro de mecânico (usando o botão "Fechar" dentro do popup)
+closeModalMecanicosButton.addEventListener('click', () => {
+    modalContainer.style.display = 'none';
+});
+
+
+
+// Adicionando evento de submissão do formulário de cadastro de mecânico
+mechanicForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    const nomeFornecedor = document.getElementById('nome_Fornecedor').value;
+    const produtoFornecido = document.getElementById('produto_Fornecido').value;
+    const telefoneFornecedor = document.getElementById('telefone_Fornecedor').value;
+    const enderecoFornecedor = document.getElementById('Endereço_Fornecedor').value;
+
+
+});
+
+// CARROS
+
+const openModalCarrosButton = document.getElementById('openModalCarros');
+const modalCarros = document.getElementById('modalCarros');
+const closeModalCarrosButton = document.getElementById('closeModalCarros');
+
+// Define o modal de carros inicialmente oculto
+modalCarros.style.display = 'none';
+
+// Adiciona evento de clique para abrir o modal de carros
+openModalCarrosButton.addEventListener('click', () => {
+    modalCarros.style.display = 'flex';
+});
+
+// Adiciona evento de clique para fechar o modal de carros
+closeModalCarrosButton.addEventListener('click', () => {
+    modalCarros.style.display = 'none';
+});
+
+function redirecionar() {
+    window.location.href = 'orçamento.html';
+  }
+
+
+
+</script>
+    <script src="/oficina/js/main.js"></script>
+    <script src="/oficina/js/cadastroCliente.js"></script>
+    <script src="/oficina/js/index.js"></script>
+</body>
+</html>
